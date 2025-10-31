@@ -1,50 +1,65 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const links = ["Home", "About", "Skills", "Projects", "Contact"];
+  const links = ["Home", "About","Education", "Skills", "Projects", "Contact"];
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="bg-gradient-to-r from-[#1B1A55] to-[#535C91] text-[#F0F0F0] px-6 py-4 fixed top-0 w-full shadow-xl backdrop-blur-md z-50">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
-        {/* Logo / Name */}
-        <h1 className="text-2xl font-bold text-white">Pinky Sahu</h1>
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
+          ? "bg-[#070F2B]/90 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+          : "bg-[#070F2B]/70 backdrop-blur-sm"
+        }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        {/* Logo */}
+        <h1 className="text-3xl font-bold text-white tracking-wide">
+          <span className="text-[#A5B3FF]">Pinky</span> Sahu
+        </h1>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-6">
+        <ul className="hidden md:flex gap-10 text-[#E5E5E5] text-[1.1rem] font-medium">
           {links.map((item) => (
-            <li key={item}>
+            <li key={item} className="relative group">
               <a
                 href={`#${item.toLowerCase()}`}
-                className="px-3 py-1 rounded-md hover:bg-[#535C91] hover:text-white transition-colors"
+                className="hover:text-[#A5B3FF] transition-colors duration-300"
               >
                 {item}
               </a>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-[#535C91] to-[#9290C3] transition-all duration-300 group-hover:w-full"></span>
             </li>
           ))}
         </ul>
 
         {/* Social Icons */}
-        <div className="hidden md:flex gap-4">
+        <div className="hidden md:flex gap-5">
           <motion.a
             href="https://github.com/Pinku-creator"
             target="_blank"
-            whileHover={{ scale: 1.2, rotate: 10 }}
-            whileTap={{ scale: 0.9 }}
-            className="text-white hover:text-pink-300"
+            whileHover={{ scale: 1.15 }}
+            className="text-[#E5E5E5] hover:text-[#A5B3FF] transition-colors"
           >
             <FaGithub size={24} />
           </motion.a>
-
           <motion.a
             href="https://www.linkedin.com/in/pinky-sahu-511a58220"
             target="_blank"
-            whileHover={{ scale: 1.2, rotate: 10 }}
-            whileTap={{ scale: 0.9 }}
-            className="text-white hover:text-blue-400"
+            whileHover={{ scale: 1.15 }}
+            className="text-[#E5E5E5] hover:text-[#A5B3FF] transition-colors"
           >
             <FaLinkedin size={24} />
           </motion.a>
@@ -61,42 +76,26 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <ul className="md:hidden flex flex-col gap-4 mt-4 px-6 pb-4 bg-[#1B1A55] rounded-lg shadow-md">
+        <motion.ul
+          initial={{ opacity: 0, y: -15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden flex flex-col gap-4 mt-3 px-6 pb-5 bg-[#1B1A55]/95 rounded-lg shadow-lg"
+        >
           {links.map((item) => (
             <li key={item}>
               <a
                 href={`#${item.toLowerCase()}`}
-                className="block px-3 py-2 rounded-md hover:bg-[#535C91] hover:text-white transition-colors"
                 onClick={() => setIsOpen(false)}
+                className="block px-3 py-2 rounded-md hover:bg-[#535C91]/70 hover:text-[#A5B3FF] transition-all"
               >
                 {item}
               </a>
             </li>
           ))}
-          <div className="flex gap-4 mt-2">
-            <motion.a
-              href="https://github.com/Pinku-creator/"
-              target="_blank"
-              whileHover={{ scale: 1.2, rotate: 10 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-white hover:text-pink-400"
-            >
-              <FaGithub size={24} />
-            </motion.a>
-
-            <motion.a
-              href="https://www.linkedin.com/in/pinky-sahu-511a58220"
-              target="_blank"
-              whileHover={{ scale: 1.2, rotate: 10 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-white hover:text-blue-400"
-            >
-              <FaLinkedin size={24} />
-            </motion.a>
-          </div>
-        </ul>
+        </motion.ul>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 
