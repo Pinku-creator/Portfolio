@@ -38,10 +38,10 @@ function Projects() {
       img: project4,
     },
     {
-      title: "Portfolio-site",
+      title: "Portfolio Website",
       desc: "React and Tailwind CSS",
-      github: "https://github.com/Pinku-creator/Portfolio-site",
-      live: "https://portfolio-site-awq9.onrender.com",
+      github: "https://github.com/Pinku-creator/Portfolio",
+      live: "https://portfolio-frontend-c1we.onrender.com",
       img: project5,
     },
   ];
@@ -121,7 +121,7 @@ function Projects() {
         rel="noopener noreferrer"
         className="inline-block mt-14 bg-[#535C91] 
       text-[#070F2B] text-lg px-8 py-3 rounded-lg hover:bg-[#a3a2c8] transition font-semibold"
-      >     
+      >
         See More
       </a>
     </section>
