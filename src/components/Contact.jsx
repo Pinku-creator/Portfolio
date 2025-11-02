@@ -20,37 +20,12 @@ function Contact() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setStatus("Sending...");
-
-//     ```
-// try {
-//   const response = await fetch(
-//     "http://localhost:8080/my-portfolio/backend/contact.php",
-//     {
-//       method: "POST",
-//       body: new URLSearchParams(formData),
-//       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-//     }
-//   );
-
-//   const result = await response.text();
-//   setStatus(result);
-//   setFormData({ name: "", email: "", subject: "", message: "" });
-// } catch (error) {
-//   console.error(error);
-//   setStatus("Error sending message!");
-// }
-// ```;
-//   };
 const handleSubmit = async (e) => {
   e.preventDefault();
   setStatus("Sending...");
 
   try {
-    const response = await fetch("http://localhost:8080/contact", {
+    const response = await fetch("https://portfolio-backend-d6ma.onrender.com/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
