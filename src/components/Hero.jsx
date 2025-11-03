@@ -53,7 +53,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
         >
           <a
-            href="/resume.pdf"
+            href="/Pinky-CV.pdf"
             download="Pinky_Sahu_Resume.pdf"
             className="inline-flex items-center gap-2 px-8 py-3 mt-4 bg-gradient-to-r from-[#535C91] to-[#9290C3] text-white rounded-lg font-semibold hover:scale-105 hover:from-[#6266a3] hover:to-[#a3a2c8] transition-all duration-300"
           >
