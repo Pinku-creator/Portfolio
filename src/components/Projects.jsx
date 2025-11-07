@@ -11,7 +11,7 @@ function Projects() {
   const projects = [
     {
       title: "Rock Paper Scissor Game",
-      desc: "HTML, CSS, JS project",
+      desc: "HTML, CSS, JS",
       github: "https://github.com/Pinku-creator/RPS-Game/",
       live: "https://pinku-creator.github.io/RPS-Game/",
       img: project1,
@@ -25,7 +25,7 @@ function Projects() {
     },
     {
       title: "Trackly Application",
-      desc: "React and Tailwind CSS",
+      desc: "JavaScript and Chart.js",
       github: "https://github.com/Pinku-creator/trackly",
       live: "https://trackly-wheat.vercel.app/",
       img: project3,
