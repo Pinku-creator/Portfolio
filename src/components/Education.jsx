@@ -6,10 +6,18 @@ const education = [
 {
 degree: "Bachelor of Computer Science",
 institution: " Rajasthan Technical University,Kota",
-year: "2020 - 2024",
+year: "2022 - 2024",
 percentage: "83.88%",
 details:
 "Focused on web development, data structures, and design principles.",
+},
+{
+degree: "Diploma in Computer Science & engineering",
+institution: "Government Polytechnic College , Kota",
+year: "2022 - 2022",
+percentage: "82.64%",
+details:
+"Exploring Web Development and Related Projects.",
 },
 {
 degree: "High School",
