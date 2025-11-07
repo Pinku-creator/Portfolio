@@ -14,7 +14,7 @@ details:
 {
 degree: "Diploma in Computer Science & engineering",
 institution: "Government Polytechnic College , Kota",
-year: "2022 - 2022",
+year: "2020 - 2022",
 percentage: "82.64%",
 details:
 "Exploring Web Development and Related Projects.",
